@@ -67,16 +67,20 @@ s2 <- arrange(.data = s1,Gender,Next.Degree) #sorts the data in asc order based 
 #Using the dataset quakes in the datasets library to complete the following 2 tasks
 #e.        Split the plotting region into 1 row and 3 columns with grey background and blue color and then plot the following graphs: lat and long, depth and mag, stations and mag.
 # this expression sets up a plot with 1 row 3 columns, sets bg color
-par(mfrow = c(1, 3),bg="Grey" ) # setting backgroung grey and creating 3 rows for 3 graphs in canvas
+par(mfrow = c(1, 3),bg="Grey" ) # setting backgro
+ung grey and creating 3 rows for 3 graphs in canvas
 plot(quakes$lat,quakes$long,xlab="LAT",ylab="LONG",col="blue") # plotting first graph between latitude and longitude in blue color and labelling them approptiately 
 plot(quakes$depth,quakes$mag,xlab="DEPTH",ylab="MAG",col="blue")#Plotting second graph between depth and mag in blue color and labelling them approptiately 
 plot(quakes$stations,quakes$mag,xlab="STATIONS",ylab="MAG",col="blue") # plotting third graph between stations and mag in blue color and labelling them approptiately 
 
 #f.        Draw a histogram for mag with density on the y-axis. Add a vertical line to indicate the mean of mag in red with line width 
 par(mfrow = c(1, 1),bg="white") #resetting the plot with white background and 1 row 
-plot(density(quakes$mag), xlab="Mag") #plots density
-polygon(density(quakes$mag),col="blue") # adds blue color shading the density
+#plot(density(quakes$mag), xlab="Mag") #plots density
+hist(quakes$mag, xlab="Mag",col="blue")#plots histogram
+#adds blue color shading the density
+#polygon(density(quakes$mag),col="blue") # adds blue color shading the density
 abline(v=mean(quakes$mag),lwd=3,col="red")#Add a vertical line to indicate the mean of mag in red with line width 3
 #3. Give the line an appropriate label.
 label1 <- paste("Avg Mag = ",mean(quakes$mag))#creating label to be pasted in graph. Created using paste function
-text(4.8,0.3,label1,srt=90)# plotting the label in appropriate coordinates as specified (4.8,0.3) and turning the label by 90 deg using srt attriute
+text(4.5,50,label1,srt=90)#plotting the label in appropriate coordinates as specified (4.8,0.3) and turning the label by 90 deg using srt attriute
+#text(4.8,0.3,label1,srt=90)
